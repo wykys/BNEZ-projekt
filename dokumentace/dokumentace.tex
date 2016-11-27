@@ -1,0 +1,78 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[total={18.5cm, 25cm}, top=1cm, bottom=1cm, left=1.25cm, includehead]{geometry}
+\usepackage{fancyhdr} %záhlaví
+\usepackage{amsmath} % větší zlomyk pmocí \dfrac
+\usepackage{fixmath} % bolt matika pomocí \mathbold
+\usepackage{tikz}% balík využívaný circuitikz
+\usepackage[european, american inductors]{circuitikz} % elektrická schémata
+\usepackage{siunitx} % SI jednotky
+\usepackage{graphicx}
+\usepackage{float} % H aby neuplavali
+\usepackage{tabularx} % tabulka s možností X
+\usepackage{ctable} % horozontální čára s nastavitelnou šířkou a mezerami od okolí \specialrule{1pt}{0pt}{0pt}
+
+\usepackage{pdflscape} % stránka na šířku
+\usepackage{pdfpages} % vložení pdf stránky
+
+\usepackage{array}
+\usepackage{multirow} % více řádků
+
+\usepackage{pdfpages}
+
+% moje vlastní příkazy ===========================
+\newcommand{\predmet}{BNEZ}
+\newcommand{\uloha}{\textsc{Návrh zdroje dvou napětí}}
+\newcommand{\rocnik}{2}
+\newcommand{\skupina}{BEST-3}
+\newcommand{\autor}{\textsc{Jan Vykydal} \\ ID: 186240}
+
+\newcommand{\vcara}{{\vrule width 1pt}}
+\newcommand{\hcara}{\specialrule{1pt}{0pt}{0pt}}
+\newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
+% konec mích vlastních příkazů ===================
+
+
+\pagestyle{fancy}
+\fancyhf{}
+% jednostranná sazba
+\fancyhead[L]{
+	\begin{tabular}{lr}
+		\textsc{Jan Vykydal} \\ 
+		186240 
+	\end{tabular} 
+}
+\fancyhead[C]{
+	\begin{tabular}{c}
+		\textsc{Napájení Elektronických Zařízení} \\
+		\textsc{projekt zdroj dvou napětí}
+	\end{tabular} 
+}
+\fancyhead[R]{
+	\begin{tabular}{lr}
+		\multicolumn{2}{r}{FEKT UREL} \\
+		\textsc{List:} & \thepage/\pageref{konec} 
+	\end{tabular} 
+}
+%\fancyfoot[C]{\textbf{List:} \thepage/\pageref{konec}}
+
+\renewcommand{\headrulewidth}{0.4pt}
+%\renewcommand{\footrulewidth}{0.4pt}
+
+\input{ic3pin.tex} % pro 3 pinový moduly
+
+\begin{document} 	
+	%\renewcommand{\figurename}{Schéma č.}
+	\renewcommand{\tablename}{Tabulka č.}
+	\setcounter{page}{1}
+  
+	\input{zadani.tex}
+	\input{blokace.tex}
+	\input{LM25085.tex}
+	\input{LM317.tex}
+	\input{ztraty.tex}
+	\input{realizace.tex}
+ 
+	\label{konec}
+\end{document}

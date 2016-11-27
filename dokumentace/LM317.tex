@@ -1,0 +1,104 @@
+\clearpage
+\section{Výpočty hodnot součástek pro lineární stabilizátor s LM317}
+
+\begin{table}[H]
+	\begin{center}
+
+		\begin{tabular}{c | c}
+			\begin{minipage}{0.2\textwidth}
+				\begin{eqnarray}
+					V_{i} &=& 9~V \nonumber\\
+					V_o &=& 4,5~V \nonumber\\
+					I_o &=& 0,5~A \nonumber\\\nonumber\\
+					V_{REF} &=& 1,25~V \nonumber\\
+					I_{ADJ} &=& 50~\mu A \nonumber
+				\end{eqnarray}
+			\end{minipage}
+
+	&		
+				
+			\begin{minipage}{0.6\textwidth}
+				\begin{figure}[H]
+					\begin{center}
+						\begin{circuitikz}
+							%\draw[help lines, thick] (0,0) grid (10,8);	
+							\draw (3,4) node[ic3pin] (ic1) {\textbf{LM317}};
+							
+							
+							%(0,0) node[anchor=east] {Vstup}			
+							\draw (0,0) to[short, o-o] (10,0);
+							\draw (0,4) to[short, o-] (2,4);
+							\draw (4,4) to[short, -o] (10,4);
+							
+							\draw (3,3) to[short, -, i=$I_{ADJ}$] (3,2) to[short] (7,2);
+							
+							\draw (5.5,4) to[R, R=$R_1$, *-*, v=$V_{REF}$] (5.5,2) to[R, R=$R_2$, -*] (5.5,0);
+							\draw (7,2) to[C=$C_{ADJ}$, -*] (7,0);								
+							
+							\draw (7,2)
+							to[D-=$D_1$, *-*] (7,4)
+							to[short, -] (7,6)
+							to[D-=$D_1$] (1,6)
+							to[short] (1,4);							
+							
+							
+							\draw (1,4) to[C=$C_I$, *-*] (1,0);							
+							\draw (9,4) to[C=$C_O$, *-*] (9,0);
+							
+							\draw (0,4) to[open, v=$V_i$] (0,0);
+							\draw (10,0) to[open, v<=$V_o$] (10,4);
+							
+							\draw (7,4) to[open, -o, i=$I_o$] (10,4);
+							
+							%\draw (2,0) node[ground] {};					
+
+							
+
+						\end{circuitikz}
+					\end{center}
+					\caption{Lineární stabilizátor}
+				\end{figure}
+			\end{minipage}
+		\end{tabular}
+	\end{center}	
+\end{table}
+
+
+\indent\indent Výpočet zpětnovazebního děliče:
+\begin{equation}
+R_2 = \dfrac{V_o - V_{REF}}{\dfrac{V_{REF}}{R_1} + I_{ADJ}} = \dfrac{4,5 - 1,25}{\dfrac{1,25}{R_1} + 50 \cdot 10^{-6}}
+\nonumber
+\end{equation}
+
+K výpočtu nejpřesnější kombinace rezistorů $R_1$ a $R_2$ jsem napsal skript LM317.py, který vypočítá pro řady $E3 \div E192$ nejvhodnější kombinace rezistorů. Výsledek skriptu pro $V_o = 4,5~V$ je uveden v tabulce.
+
+\begin{table}[H]
+	\caption{Hodnoty zpětnovazebného děliče pro LM317}	
+	\begin{center}				
+		\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+		\newcolumntype{L}{>{\raggedleft\arraybackslash}X}
+		\newcolumntype{C}{>{\centering\arraybackslash}X}		
+		\begin{tabularx}{0.8\textwidth}{!\vcara C|C|C|C !\vcara}
+			\hcara 
+			\textbf{řada} & $\mathbold{R_1~[\Omega]}$ & $\mathbold{R_2~[\Omega]}$ & $\mathbold{V_o~[V]}$ \\\hcara 
+			E3 & 100 & 220 & 4,0110 \\\hline 
+			E6 & 680 & 1500 & 4,0824 \\\hline 
+			E12 & 470 & 1200 & 4,5015 \\\hline 
+			E24 & 510 & 1300 & 4,5013 \\\hline 
+			E48 & 953 & 2370 & 4,4771 \\\hline 
+			E96 & 562 & 1430 & 4,5021 \\\hline 
+			E192 & 229 & 590 & 4,5000 \\\hcara
+		\end{tabularx} 
+	\end{center}
+\end{table}
+
+Výpočet výstupního napětí:
+\begin{equation}
+V_o = V_{REF} \cdot \left(1 + \dfrac{R_2}{R_1} \right) + I_{ADJ} \cdot R_2 = 1,25 \cdot \left(1 + \dfrac{590}{229} \right) + 50 \cdot 10^{-6} \cdot 590 \doteq \underline{\underline{4,5~V}}
+\nonumber
+\end{equation}
+
+Vstupní a výstupní kondenzátor mají hodnotu podle doporučení datasheetu a to: $C_i = 100~nF$ a $C_o = 1~\mu F$. Na $C_o$ je možné ještě paralelně přiletovat $C_{BYPASS}$ v pouzdru 0805 pro přemostění vysokofrekvenčního rušení. Kondenzátor pro stabilizaci napěťové reference má také hodnotu dle doporučení výrobce $C_{ADJ} = 10~\mu F$.
+
+
+		

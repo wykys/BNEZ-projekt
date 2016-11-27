@@ -1,0 +1,76 @@
+% We use tikz to construct a shape corresponding to a 3 pin IC
+%
+% Source: http://www.elfsoft2000.com/projects/multipole.pdf
+
+
+\newlength{\side}               % We define a new length that corresponds to the side of the IC we are constructing
+\setlength{\side}{2cm}
+
+\pgfdeclareshape{ic3pin}
+{
+   \anchor{center}{\pgfpointorigin}      % All circuitikz objects must have a 'center' and a 'text' anchor. Within the object/node (0, 0) is at the center and everything is drawn around this
+   \anchor{text}                        % Used to center the text inside the node
+      {\pgfpoint{-.5\wd\pgfnodeparttextbox}{-.5\ht\pgfnodeparttextbox}}
+
+   % Construct custom anchors
+   \savedanchor\icpina{\pgfpoint{-0.5\side}{0}}        % Create an anchor with internal name \icpina for pin 1 at the specified point which is on the top of the IC at its center hence the coordinates (0, 0.5\side)
+   \anchor{pin1}{\icpina}                               % We create an anchor with external name pin1 from the saved anchor created above
+
+   \savedanchor\icpinb{\pgfpoint{0}{-0.5\side}}
+   \anchor{pin2}{\icpinb}
+
+   \savedanchor\icpinc{\pgfpoint{0.5\side}{0}}
+   \anchor{pin3}{\icpinc}
+
+   % Now we draw the actual node/object
+   \foregroundpath              % Border and pin numbers are drawn here
+   {
+      \pgfsetlinewidth{0.05cm}
+
+      \pgfpathrectanglecorners{\pgfpoint{-1cm}{-1cm}}{\pgfpoint{1cm}{1cm}}
+      \pgfusepath{draw}     % Draw the rectangle defined above
+   }
+}
+
+
+
+
+\pgfdeclareshape{LM25085}{
+\anchor{center}{\pgfpointorigin} % within the node, (0,0) is the center
+\anchor{text} % this is used to center the text in the node
+{\pgfpoint{-.5\wd\pgfnodeparttextbox}{-.5\ht\pgfnodeparttextbox}}
+\savedanchor\icpina{\pgfpoint{-.75cm}{-.625cm}} % pin 1
+\anchor{p1}{\icpina}
+\savedanchor\icpinb{\pgfpoint{-.25cm}{-.625cm}} % pin 2
+\anchor{p2}{\icpinb}
+\savedanchor\icpinc{\pgfpoint{.25cm}{-.625cm}} % pin 3
+\anchor{p3}{\icpinc}
+\savedanchor\icpind{\pgfpoint{.75cm}{-.625cm}} % pin 4
+\anchor{p4}{\icpind}
+\savedanchor\icpine{\pgfpoint{.75cm}{.625cm}} % pin 5
+\anchor{p5}{\icpine}
+\savedanchor\icpinf{\pgfpoint{.25cm}{.625cm}} % pin 6
+\anchor{p6}{\icpinf}
+\savedanchor\icping{\pgfpoint{-.25cm}{.625cm}} % pin 7
+\anchor{p7}{\icping}
+\savedanchor\icpinh{\pgfpoint{-.75cm}{.625cm}} % pin 8
+\anchor{p8}{\icpinh}
+\foregroundpath{ % border and pin numbers are drawn here
+\pgfsetlinewidth{0.05cm}
+\pgfpathrectanglecorners{\pgfpoint{2cm}{4cm}}{\pgfpoint{-2cm}{-4cm}}
+\pgfusepath{draw} %draw rectangle
+
+
+\pgfusepath{draw} %draw semicircle
+
+\pgftext[left,at={\pgfpoint{-1.8cm}{3cm}}]{\scriptsize VIN}
+\pgftext[left,at={\pgfpoint{-1.8cm}{1cm}}]{\scriptsize RT}
+\pgftext[left,at={\pgfpoint{-1.8cm}{-3cm}}]{\scriptsize GND}
+
+\pgftext[right,at={\pgfpoint{1.8cm}{3cm}}]{\scriptsize VCC}
+\pgftext[right,at={\pgfpoint{1.8cm}{1cm}}]{\scriptsize ADJ}
+\pgftext[right,at={\pgfpoint{1.8cm}{-1cm}}]{\scriptsize ISEN}
+\pgftext[right,at={\pgfpoint{1.8cm}{-2cm}}]{\scriptsize PGATE}
+\pgftext[right,at={\pgfpoint{1.8cm}{-3cm}}]{\scriptsize FB}
+
+}}

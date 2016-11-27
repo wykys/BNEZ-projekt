@@ -1,0 +1,20 @@
+** Profile: "SCHEMATIC1-bias"  [ C:\VUT\BS3\BNEZ\projekt\sim\bnez-pspicefiles\schematic1\bias.sim ] 
+
+** Creating circuit file "bias.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\wykys\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice/16.6.0/PSpice.ini file:
+.lib "C:\vut\BS3\BNEZ\projekt\sim\lm25085_trans.lib" 
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 50n 0 SKIPBP 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+.END

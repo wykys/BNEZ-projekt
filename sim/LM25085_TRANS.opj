@@ -1,0 +1,54 @@
+(ExpressProject "LM5085_TRAN"
+  (ProjectVersion "19981106")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File ".\lm25085_trans.olb"
+        (Type "Schematic Library")))
+    (NoModify)
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (RootChangedForceReNetlist "x")
+    (PSPICE_Regenerate_Netlist_Flag "FALSE")
+    (File ".\lm25085_trans.dsn"
+      (Type "Schematic Design")))
+  (Folder "Outputs")
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles"
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\lm25085_trans-pspicefiles\line_trans\line_trans.sim"
+        (DisplayName "LINE_TRANS-LINE_TRANS")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\lm25085_trans-pspicefiles\startup_tran\startup_tran.sim"
+        (DisplayName "STARTUP_TRAN-STARTUP_TRAN")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\lm25085_trans-pspicefiles\load_trans\load_trans.sim"
+        (DisplayName "LOAD_TRANS-LOAD_TRANS")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\lm25085_trans-pspicefiles\steady_trans\steady_trans.sim"
+        (DisplayName "STEADY_TRANS-STEADY_TRANS")
+        (Type "PSpice Profile")))
+    (Folder "Model Libraries"
+      (Sort User)
+      (File ".\lm25085_trans.lib"
+        (Type "PSpiceLibrary")
+        (DisplayName ".\lm25085_trans.lib")))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User)))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (GlobalState
+    (FileView
+      (Path "Design Resources"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 0 200 0 403"))
+      (Tab 0)))
+  (MPSSessionName "wykys")
+  (PartMRUSelector))

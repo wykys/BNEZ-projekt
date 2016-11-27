@@ -1,0 +1,1598 @@
+
+**** 11/12/16 01:00:08 ***** PSpice 16.6.0 (October 2012) ***** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\VUT\BS3\BNEZ\projekt\sim\bnez-pspicefiles\schematic1\bias.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "bias.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\wykys\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice/16.6.0/PSpice.ini file:
+.lib "C:\vut\BS3\BNEZ\projekt\sim\lm25085_trans.lib" 
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 50n 0 SKIPBP 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source BNEZ
+R_R1         N14760 OUT  10k TC=0,0 
+R_R2         0 N14760  12k TC=0,0 
+L_L1         N15182 OUT  56u  
+C_C1         0 OUT  33u  TC=0,0 
+C_C2         IN N15292  1u  TC=0,0 
+X_U1         N15229 N149361 N14760 0 N15144 N15115 N15292 N149367 LM25085_TRANS
++  
+R_R3         N149361 N149367  510R TC=0,0 
+R_R4         IN N15229  1.5k TC=0,0 
+C_C3         IN N15229  1n  TC=0,0 
+D_D1         0 N15182 D1N3501 
+X_M1         N15182 N15115 N15144 SI1031R
+R_R5         IN N15144  0.01R TC=0,0 
+C_C4         0 IN  10u  TC=0,0 
+C_C5         N14760 OUT  330p  TC=0,0 
+V_V1         IN 0 32Vdc
+
+**** RESUMING bias.cir ****
+.END
+
+**** 11/12/16 01:00:08 ***** PSpice 16.6.0 (October 2012) ***** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\VUT\BS3\BNEZ\projekt\sim\bnez-pspicefiles\schematic1\bias.sim ] 
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D1N3501         X_M1.DBD        X_M1.XESD.dleak X_M1.XESD.dout  
+  T_Measured                                   25              25            
+   T_Current                                   27              27            
+          IS   10.000000E-15    1.000000E-12    3.000000E-09    5.100000E-09 
+           N                                   34               2            
+         ISR  678.500000E-09                                                 
+          BV    6.444          20.2             6.4             6.38         
+         IBV     .2898                                                       
+          RS     .1             1                                            
+          TT    7.213000E-06   50.000000E-09                                 
+         CJO  168.900000E-12   30.000000E-12                                 
+          VJ     .3905           .38                                         
+           M     .1794           .3                                          
+          EG                                    1.17            1.17         
+         XTI                                  350             -35            
+        TBV1                                                 -564.000000E-06 
+
+
+               X_M1.XESD.din   
+  T_Measured   25            
+   T_Current   27            
+          IS    5.100000E-09 
+           N    1.5          
+          BV    6.25         
+          EG    1.17         
+         XTI  -30            
+        TBV1 -176.000000E-06 
+
+
+**** 11/12/16 01:00:08 ***** PSpice 16.6.0 (October 2012) ***** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\VUT\BS3\BNEZ\projekt\sim\bnez-pspicefiles\schematic1\bias.sim ] 
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_M1.PMOS       X_M1.NMOS       
+               PMOS            NMOS            
+       LEVEL    3               3            
+         TPG   -1              -1            
+           L  100.000000E-06  100.000000E-06 
+           W  100.000000E-06  100.000000E-06 
+         VTO   -1.091295        2.152513     
+          KP   18.000000E-06  121.875700E-06 
+       GAMMA     .237314        1.268497     
+         PHI     .676983         .850398     
+      LAMBDA    0               0            
+          RS     .32                         
+          IS    0              10.000000E-15 
+          JS    0               0            
+          PB     .8              .8          
+        PBSW     .8              .8          
+          CJ  269.472400E-06    1.440390E-03 
+        CJSW    0               0            
+        CGSO    0               0            
+        CGDO    0               0            
+        CGBO    0               0            
+        NSUB    7.000000E+15  200.000000E+15 
+         NFS  800.000000E+09                 
+         TOX   17.000000E-09   17.000000E-09 
+          XJ  500.000000E-09    0            
+          UO  400                            
+       UCRIT   10.000000E+03   10.000000E+03 
+       DELTA     .1                          
+         ETA  100.000000E-06                 
+       KAPPA    2.000000E-03                 
+      DIOMOD    1               1            
+         VFB    0               0            
+        LETA    0               0            
+        WETA    0               0            
+          U0    0               0            
+        TEMP    0               0            
+         VDD    5               5            
+       XPART    0               0            
+
+
+**** 11/12/16 01:00:08 ***** PSpice 16.6.0 (October 2012) ***** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\VUT\BS3\BNEZ\projekt\sim\bnez-pspicefiles\schematic1\bias.sim ] 
+
+
+ ****     Resistor MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_M1.RTEMP      
+           R    1            
+         TC1     .01         
+         TC2    5.500000E-06 
+
+Convergence problem in transient analysis at Time =  13.66E-12
+         Time step =  32.15E-21, minimum allowable step size =  50.00E-21
+
+  These voltages failed to converge:
+
+    V(N149361)                =     16.54V  \     32.39V
+    V(N149367)                =     32.00V  \     64.00V
+    V(X_U1.22)                =     16.54V  \     32.39V
+    V(X_U1.4)                 =     15.85V  \     31.69V
+    V(X_U1.46)                =     15.16V  \     30.99V
+    V(X_U1.X66.6)             =   101.24mV  \   100.00mV
+    V(X_U1.X22.X1.4)          =    1.265mV  \         0V
+    V(X_U1.X22.X2.4)          =    1.265mV  \   -56.84fV
+    V(X_U1.X6.X1.4)           =    1.265mV  \   -5.457pV
+    V(X_U1.X6.X2.4)           =    1.265mV  \         0V
+
+  These supply currents failed to converge:
+
+    I(X_U1.X66.EB1)           =   500.77mA  \   502.01mA
+    I(X_U1.X22.X1.EB1)        =   598.74mA  \   600.00mA
+    I(X_U1.X22.X2.EB1)        =   598.74mA  \   600.00mA
+    I(X_U1.X6.X1.EB1)         =   598.74mA  \   600.00mA
+    I(X_U1.X6.X2.EB1)         =   598.74mA  \   600.00mA
+    I(V_V1)                   =    -12.59A  \    -13.09A
+    I(X_U1.V17)               =    30.32mA  \    61.98mA
+
+  These devices failed to converge:
+    D_D1      X_U1.DON1 X_U1.DON2 X_U1.EBSSV X_U1.X66.EB1 X_U1.X22.X1.EB1 
+    X_U1.X22.X2.EB1 X_U1.X6.X1.EB1 X_U1.X6.X2.EB1 X_U1.GBTON 
+
+
+
+  Last node voltages tried were:
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   IN)   32.0000  (  OUT) 434.7E-15  (N14760) 434.7E-15 (N15115)   30.9880     
+
+(N15144)   31.8690 (N15182)    4.2123 (N15229)   32.0000 (N15292)   32.0000     
+
+(X_M1.3)    4.5089 (X_M1.5)   28.9640 (X_U1.1)    0.0000 (X_U1.4)   15.8480     
+
+(X_U1.7) 298.3E-06 (N149361)   16.5370                   (N149367)   32.0000    
+
+(X_U1.15) 6.996E-09                   (X_U1.22)   16.5370                       
+
+(X_U1.24)    0.0000                   (X_U1.28)    0.0000                       
+
+(X_U1.45)    3.1338                   (X_U1.46)   15.1590                       
+
+(X_U1.49)     .6020                   (X_U1.50)     .6000                       
+
+(X_U1.54)     .7003                   (X_U1.CL)    0.0000                       
+
+(X_U1.HI)    5.0000                   (X_U1.LO)     .0140                       
+
+(X_U1.OV)    0.0000                   (X_U1.QN)     .6000                       
+
+(X_U1.SS) 6.996E-09                   (X_U1.111)   32.0000                      
+
+(X_U1.ONT)    0.0000                  (X_U1.REF)    1.2500                      
+
+(X_U1.SSV)    3.8000                  (X_U1.V5V)    5.0000                      
+
+(X_U1.COMP)    0.0000                 (X_U1.ENON)    4.9950                     
+
+(X_U1.OFFT)    0.0000                 (X_U1.REF1)    1.2500                     
+
+(X_U1.VSDN)    0.0000                 (X_U1.X2.3)    5.0000                     
+
+(X_U1.X5.4)     .1000                 (X_U1.X8.3)     .1000                     
+
+(X_U1.DRIVE)     .6000                (X_U1.ENINT)    1.6672                    
+
+(X_U1.INVCL)     .7003                (X_U1.X66.6)     .1012                    
+
+(X_U1.X67.3)     .1000                (X_U1.X68.3)    5.0000                    
+
+(X_U1.X69.4)    0.0000                (X_U1.X69.5)    0.0000                    
+
+(X_U1.X71.4)    5.0000                (X_U1.XA1.4)    0.0000                    
+
+(X_U1.XA2.4)    0.0000                (X_U1.XCL.4)    5.0000                    
+
+(X_U1.XCL.5)    0.0000                (X_U1.XFB.4)    5.0000                    
+
+(X_U1.XFB.5)    0.0000                (X_M1.XESD.6)   30.9880                   
+
+(X_M1.XESD.7)   30.9880               (X_M1.XESD.8)   31.0240                   
+
+(X_M1.XESD.9)   28.9640               (X_U1.CAPOFF) 40.96E-06                   
+
+(X_U1.DRVNOT)     .6000               (X_U1.ONCOMP)     .0140                   
+
+(X_U1.QLATCH)     .6000               (X_U1.XOFF.4)    0.0000                   
+
+(X_U1.XOFF.5)    0.0000               (X_M1.XESD.10)   28.9900                  
+
+(X_U1.INVCOMP)     .7003              (X_U1.VCCUVLO)    1.6656                  
+
+(X_U1.X6.X1.4)     .0013              (X_U1.X6.X2.4)     .0013                  
+
+(X_U1.OFFRESET)     .6020             (X_U1.X22.X1.4)     .0013                 
+
+(X_U1.X22.X2.4)     .0013             (X_U1.IFAULTCLEAR)    0.0000          
+
+Resuming Simulation with the following settings
+ITL4 = 125
+RELTOL = 0.0086
+ABSTOL = 1.41e-009
+
+Convergence problem in transient analysis at Time =  13.66E-12
+         Time step =  14.17E-21, minimum allowable step size =  50.00E-21
+
+  These voltages failed to converge:
+
+    V(N149361)                =    3.238nV  \     32.39V
+    V(N149367)                =         0V  \     64.00V
+    V(X_U1.ENON)              =    10.07mV  \     4.995V
+    V(X_U1.ENINT)             =     1.667V  \     2.500V
+    V(X_U1.VCCUVLO)           =     1.666V  \    2.500nV
+    V(X_U1.22)                =    3.238nV  \     32.39V
+    V(X_U1.4)                 =    31.75pV  \     31.69V
+    V(X_U1.46)                =   -3.175nV  \     30.99V
+    V(X_U1.X22.X1.4)          =    74.31uV  \         0V
+    V(X_U1.X22.X2.4)          =    74.31uV  \   -1.776fV
+    V(X_U1.X6.X1.4)           =    74.31uV  \  -923.71fV
+    V(X_U1.X6.X2.4)           =    74.31uV  \         0V
+
+  These supply currents failed to converge:
+
+    I(X_U1.EB7)               =         0A  \   -62.50mA
+    I(V_V1)                   =    -12.59A  \    -13.09A
+    I(X_U1.V_V5V)             =   -3.343mA  \   -7.495mA
+    I(X_U1.V17)               =   -6.349pA  \    61.98mA
+
+  These devices failed to converge:
+    X_U1.EBREF1 X_U1.EBENVCC X_U1.EB7  X_U1.EBSSEN X_U1.EBSSV X_U1.X22.X1.EB1 
+    X_U1.X22.X2.EB1 X_U1.X6.X1.EB1 X_U1.X6.X2.EB1 X_U1.GBTON 
+
+
+
+  Last node voltages tried were:
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   IN)   32.0000  (  OUT) 434.7E-15  (N14760) 434.7E-15 (N15115)   30.9880     
+
+(N15144)   31.8690 (N15182)    4.2123 (N15229)   32.0000 (N15292)   32.0000     
+
+(X_M1.3)    4.5089 (X_M1.5)   28.9640 (X_U1.1)    0.0000 (X_U1.4) 31.75E-12     
+
+(X_U1.7) 298.3E-06 (N149361) 3.238E-09                   (N149367)    0.0000    
+
+(X_U1.15) 6.996E-09                   (X_U1.22) 3.238E-09                       
+
+(X_U1.24)    0.0000                   (X_U1.28)    0.0000                       
+
+(X_U1.45)    3.1338                   (X_U1.46)-3.175E-09                       
+
+(X_U1.49)     .6020                   (X_U1.50)     .6000                       
+
+(X_U1.54)     .7003                   (X_U1.CL)    0.0000                       
+
+(X_U1.HI)    5.0000                   (X_U1.LO)     .0140                       
+
+(X_U1.OV)    0.0000                   (X_U1.QN)     .6000                       
+
+(X_U1.SS) 6.996E-09                   (X_U1.111)   32.0000                      
+
+(X_U1.ONT)    0.0000                  (X_U1.REF)    1.2500                      
+
+(X_U1.SSV)    3.8000                  (X_U1.V5V)    5.0000                      
+
+(X_U1.COMP)    0.0000                 (X_U1.ENON)     .0101                     
+
+(X_U1.OFFT)    0.0000                 (X_U1.REF1)    1.2500                     
+
+(X_U1.VSDN)    0.0000                 (X_U1.X2.3)    5.0000                     
+
+(X_U1.X5.4)     .1000                 (X_U1.X8.3)     .1000                     
+
+(X_U1.DRIVE)     .6000                (X_U1.ENINT)    1.6672                    
+
+(X_U1.INVCL)     .7003                (X_U1.X66.6)     .1001                    
+
+(X_U1.X67.3)     .1000                (X_U1.X68.3)    5.0000                    
+
+(X_U1.X69.4)    0.0000                (X_U1.X69.5)    0.0000                    
+
+(X_U1.X71.4)    5.0000                (X_U1.XA1.4)    0.0000                    
+
+(X_U1.XA2.4)    0.0000                (X_U1.XCL.4)    5.0000                    
+
+(X_U1.XCL.5)    0.0000                (X_U1.XFB.4)    5.0000                    
+
+(X_U1.XFB.5)    0.0000                (X_M1.XESD.6)   30.9880                   
+
+(X_M1.XESD.7)   30.9880               (X_M1.XESD.8)   31.0240                   
+
+(X_M1.XESD.9)   28.9640               (X_U1.CAPOFF) 40.96E-06                   
+
+(X_U1.DRVNOT)     .6000               (X_U1.ONCOMP)     .0140                   
+
+(X_U1.QLATCH)     .6000               (X_U1.XOFF.4)    0.0000                   
+
+(X_U1.XOFF.5)    0.0000               (X_M1.XESD.10)   28.9900                  
+
+(X_U1.INVCOMP)     .7003              (X_U1.VCCUVLO)    1.6656                  
+
+(X_U1.X6.X1.4) 74.31E-06              (X_U1.X6.X2.4) 74.31E-06                  
+
+(X_U1.OFFRESET)     .6020             (X_U1.X22.X1.4) 74.31E-06                 
+
+(X_U1.X22.X2.4) 74.31E-06             (X_U1.IFAULTCLEAR)    0.0000          
+
+Resuming Simulation with the following settings
+ITL4 = 1000
+ABSTOL = 2e-006
+VNTOL = 4.47e-005
+
+Convergence problem in transient analysis at Time =  13.66E-12
+         Time step =  14.17E-21, minimum allowable step size =  50.00E-21
+
+  These voltages failed to converge:
+
+    V(N149361)                =    3.238nV  \     32.39V
+    V(N149367)                =         0V  \     64.00V
+    V(X_U1.ENON)              =    5.878mV  \     4.995V
+    V(X_U1.ENINT)             =     1.667V  \     2.500V
+    V(X_U1.VCCUVLO)           =     1.666V  \    2.500nV
+    V(X_U1.22)                =    3.238nV  \     32.39V
+    V(X_U1.4)                 =    31.75pV  \     31.69V
+    V(X_U1.46)                =   -3.175nV  \     30.99V
+
+  These supply currents failed to converge:
+
+    I(X_U1.EB7)               =         0A  \   -62.50mA
+    I(V_V1)                   =    -12.59A  \    -13.09A
+    I(X_U1.V_V5V)             =   -3.339mA  \   -7.495mA
+    I(X_U1.V17)               =   -6.349pA  \    61.98mA
+
+  These devices failed to converge:
+    X_U1.EBREF1 X_U1.EBENVCC X_U1.EB7  X_U1.EBSSEN X_U1.EBSSV X_U1.GBTON 
+
+
+
+  Last node voltages tried were:
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   IN)   32.0000  (  OUT) 434.7E-15  (N14760) 434.7E-15 (N15115)   30.9880     
+
+(N15144)   31.8690 (N15182)    4.2123 (N15229)   32.0000 (N15292)   32.0000     
+
+(X_M1.3)    4.5089 (X_M1.5)   28.9640 (X_U1.1)    0.0000 (X_U1.4) 31.75E-12     
+
+(X_U1.7) 298.3E-06 (N149361) 3.238E-09                   (N149367)    0.0000    
+
+(X_U1.15) 6.996E-09                   (X_U1.22) 3.238E-09                       
+
+(X_U1.24)    0.0000                   (X_U1.28)    0.0000                       
+
+(X_U1.45)    3.1338                   (X_U1.46)-3.175E-09                       
+
+(X_U1.49)     .6020                   (X_U1.50)     .6000                       
+
+(X_U1.54)     .7003                   (X_U1.CL)    0.0000                       
+
+(X_U1.HI)    5.0000                   (X_U1.LO)     .0140                       
+
+(X_U1.OV)    0.0000                   (X_U1.QN)     .6000                       
+
+(X_U1.SS) 6.996E-09                   (X_U1.111)   32.0000                      
+
+(X_U1.ONT)    0.0000                  (X_U1.REF)    1.2500                      
+
+(X_U1.SSV)    3.8000                  (X_U1.V5V)    5.0000                      
+
+(X_U1.COMP)    0.0000                 (X_U1.ENON)     .0059                     
+
+(X_U1.OFFT)    0.0000                 (X_U1.REF1)    1.2500                     
+
+(X_U1.VSDN)    0.0000                 (X_U1.X2.3)    5.0000                     
+
+(X_U1.X5.4)     .1000                 (X_U1.X8.3)     .1000                     
+
+(X_U1.DRIVE)     .6000                (X_U1.ENINT)    1.6672                    
+
+(X_U1.INVCL)     .7003                (X_U1.X66.6)     .1000                    
+
+(X_U1.X67.3)     .1000                (X_U1.X68.3)    5.0000                    
+
+(X_U1.X69.4)    0.0000                (X_U1.X69.5)    0.0000                    
+
+(X_U1.X71.4)    5.0000                (X_U1.XA1.4)    0.0000                    
+
+(X_U1.XA2.4)    0.0000                (X_U1.XCL.4)    5.0000                    
+
+(X_U1.XCL.5)    0.0000                (X_U1.XFB.4)    5.0000                    
+
+(X_U1.XFB.5)    0.0000                (X_M1.XESD.6)   30.9880                   
+
+(X_M1.XESD.7)   30.9880               (X_M1.XESD.8)   31.0240                   
+
+(X_M1.XESD.9)   28.9640               (X_U1.CAPOFF) 40.96E-06                   
+
+(X_U1.DRVNOT)     .6000               (X_U1.ONCOMP)     .0140                   
+
+(X_U1.QLATCH)     .6000               (X_U1.XOFF.4)    0.0000                   
+
+(X_U1.XOFF.5)    0.0000               (X_M1.XESD.10)   28.9900                  
+
+(X_U1.INVCOMP)     .7003              (X_U1.VCCUVLO)    1.6656                  
+
+(X_U1.X6.X1.4) 40.60E-06              (X_U1.X6.X2.4) 40.60E-06                  
+
+(X_U1.OFFRESET)     .6020             (X_U1.X22.X1.4) 40.60E-06                 
+
+(X_U1.X22.X2.4) 40.60E-06             (X_U1.IFAULTCLEAR)    0.0000          
+
+Resuming Simulation with the following settings
+RELTOL = 0.05
+ABSTOL = 0.001
+
+Convergence problem in transient analysis at Time =  13.66E-12
+         Time step =  14.17E-21, minimum allowable step size =  50.00E-21
+
+  These voltages failed to converge:
+
+    V(N149361)                =    3.238nV  \     32.39V
+    V(N149367)                =         0V  \     64.00V
+    V(X_U1.ENON)              =    5.878mV  \     4.995V
+    V(X_U1.ENINT)             =     1.667V  \     2.500V
+    V(X_U1.VCCUVLO)           =     1.666V  \    2.500nV
+    V(X_U1.22)                =    3.238nV  \     32.39V
+    V(X_U1.4)                 =    31.75pV  \     31.69V
+    V(X_U1.46)                =   -3.175nV  \     30.99V
+
+  These supply currents failed to converge:
+
+    I(X_U1.EB7)               =         0A  \   -62.50mA
+    I(X_U1.V_V5V)             =   -3.339mA  \   -7.495mA
+    I(X_U1.V17)               =   -6.349pA  \    61.98mA
+
+  These devices failed to converge:
+    X_U1.EBREF1 X_U1.EBENVCC X_U1.EB7  X_U1.EBSSEN X_U1.EBSSV 
+
+
+
+  Last node voltages tried were:
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   IN)   32.0000  (  OUT) 434.7E-15  (N14760) 434.7E-15 (N15115)   30.9880     
+
+(N15144)   31.8690 (N15182)    4.2123 (N15229)   32.0000 (N15292)   32.0000     
+
+(X_M1.3)    4.5089 (X_M1.5)   28.9640 (X_U1.1)    0.0000 (X_U1.4) 31.75E-12     
+
+(X_U1.7) 298.3E-06 (N149361) 3.238E-09                   (N149367)    0.0000    
+
+(X_U1.15) 6.996E-09                   (X_U1.22) 3.238E-09                       
+
+(X_U1.24)    0.0000                   (X_U1.28)    0.0000                       
+
+(X_U1.45)    3.1338                   (X_U1.46)-3.175E-09                       
+
+(X_U1.49)     .6020                   (X_U1.50)     .6000                       
+
+(X_U1.54)     .7003                   (X_U1.CL)    0.0000                       
+
+(X_U1.HI)    5.0000                   (X_U1.LO)     .0140                       
+
+(X_U1.OV)    0.0000                   (X_U1.QN)     .6000                       
+
+(X_U1.SS) 6.996E-09                   (X_U1.111)   32.0000                      
+
+(X_U1.ONT)    0.0000                  (X_U1.REF)    1.2500                      
+
+(X_U1.SSV)    3.8000                  (X_U1.V5V)    5.0000                      
+
+(X_U1.COMP)    0.0000                 (X_U1.ENON)     .0059                     
+
+(X_U1.OFFT)    0.0000                 (X_U1.REF1)    1.2500                     
+
+(X_U1.VSDN)    0.0000                 (X_U1.X2.3)    5.0000                     
+
+(X_U1.X5.4)     .1000                 (X_U1.X8.3)     .1000                     
+
+(X_U1.DRIVE)     .6000                (X_U1.ENINT)    1.6672                    
+
+(X_U1.INVCL)     .7003                (X_U1.X66.6)     .1000                    
+
+(X_U1.X67.3)     .1000                (X_U1.X68.3)    5.0000                    
+
+(X_U1.X69.4)    0.0000                (X_U1.X69.5)    0.0000                    
+
+(X_U1.X71.4)    5.0000                (X_U1.XA1.4)    0.0000                    
+
+(X_U1.XA2.4)    0.0000                (X_U1.XCL.4)    5.0000                    
+
+(X_U1.XCL.5)    0.0000                (X_U1.XFB.4)    5.0000                    
+
+(X_U1.XFB.5)    0.0000                (X_M1.XESD.6)   30.9880                   
+
+(X_M1.XESD.7)   30.9880               (X_M1.XESD.8)   31.0240                   
+
+(X_M1.XESD.9)   28.9640               (X_U1.CAPOFF) 40.96E-06                   
+
+(X_U1.DRVNOT)     .6000               (X_U1.ONCOMP)     .0140                   
+
+(X_U1.QLATCH)     .6000               (X_U1.XOFF.4)    0.0000                   
+
+(X_U1.XOFF.5)    0.0000               (X_M1.XESD.10)   28.9900                  
+
+(X_U1.INVCOMP)     .7003              (X_U1.VCCUVLO)    1.6656                  
+
+(X_U1.X6.X1.4) 11.34E-06              (X_U1.X6.X2.4) 11.34E-06                  
+
+(X_U1.OFFRESET)     .6020             (X_U1.X22.X1.4) 11.34E-06                 
+
+(X_U1.X22.X2.4) 11.34E-06             (X_U1.IFAULTCLEAR)    0.0000          
+
+Resuming could not converge the circuit, restarting it now
+
+  These voltages failed to converge:
+
+    V(N15292)                 =         0V  \     32.00V
+    V(N149361)                =    10.00GV  \    3.238nV
+    V(N149367)                =    10.00GV  \         0V
+    V(X_U1.REF1)              =         0V  \     1.250V
+    V(X_U1.ENON)              =    4.995mV  \    5.878mV
+    V(N15115)                 =      9.65V  \     30.99V
+    V(X_U1.111)               =   -17.97pV  \     32.00V
+    V(X_U1.24)                =     5.000V  \         0V
+    V(X_U1.15)                =    1.170GV  \    6.996nV
+    V(X_U1.SS)                =    1.170GV  \    6.996nV
+    V(X_U1.7)                 =    10.00GV  \   298.26uV
+    V(X_U1.22)                =    10.00GV  \    3.238nV
+    V(X_U1.4)                 =    10.00GV  \    31.75pV
+    V(X_U1.46)                =    10.00GV  \   -3.175nV
+    V(X_U1.VSDN)              =     5.000V  \         0V
+    V(X_U1.45)                =    10.00GV  \     3.134V
+    V(X_U1.SSV)               =    10.00GV  \     3.800V
+    V(X_M1.XESD.6)            =      9.65V  \     30.99V
+    V(X_M1.XESD.7)            =      9.65V  \     30.99V
+    V(X_M1.XESD.8)            =      9.69V  \     31.02V
+    V(X_U1.X22.X1.4)          =    8.789nV  \    11.34uV
+    V(X_U1.X22.X2.4)          =    8.783nV  \    11.34uV
+    V(X_U1.X6.X1.4)           =    8.836nV  \    11.34uV
+    V(X_U1.X6.X2.4)           =    8.789nV  \    11.34uV
+
+  These supply currents failed to converge:
+
+    I(X_U1.EB4)               =   193.08mA  \   -20.24mA
+    I(X_U1.EBENVCC)           =   -5.000pA  \         0A
+    I(X_U1.EB7)               =   -10.00GA  \         0A
+    I(X_U1.EBSSV)             =   -10.00GA  \   -31.03uA
+    I(V_V1)                   =   -10.00GA  \    -12.59A
+    I(X_U1.VL)                =    10.00GA  \    15.67uA
+    I(X_U1.V17)               =    10.00GA  \   -6.349pA
+
+  These devices failed to converge:
+    X_M1.XESD.d1 X_M1.XESD.d3 X_U1.EBREF X_U1.EB7  X_U1.EBFB X_U1.EBSSV 
+    X_U1.GBTON X_U1.MSS  X_U1.QSS1 X_U1.QSS2 
+Restarting Simulation with the following settings
+ITL4 = 125
+ABSTOL = 1.41e-009
+VNTOL = 4.47e-005
+
+Convergence problem in transient analysis at Time =  13.66E-12
+         Time step =  40.80E-21, minimum allowable step size =  50.00E-21
+
+  These voltages failed to converge:
+
+    V(N149361)                =    3.118nV  \     16.53V
+    V(N149367)                =         0V  \     32.00V
+    V(X_U1.ENON)              =    10.07mV  \     4.995V
+    V(X_U1.22)                =    3.118nV  \     16.53V
+    V(X_U1.4)                 =    30.57pV  \     15.85V
+    V(X_U1.46)                =   -3.057nV  \     15.17V
+    V(X_U1.SSV)               =    -32.00V  \   518.40nV
+    V(X_U1.X66.6)             =   100.22mV  \   100.00mV
+    V(X_U1.X22.X1.4)          =   222.07uV  \         0V
+    V(X_U1.X22.X2.4)          =   222.07uV  \         0V
+    V(X_U1.X6.X1.4)           =   222.07uV  \  -150.99fV
+    V(X_U1.X6.X2.4)           =   222.07uV  \         0V
+
+  These supply currents failed to converge:
+
+    I(X_U1.EB7)               =         0A  \   -62.50mA
+    I(V_V1)                   =    -13.09A  \    -13.34A
+    I(X_U1.V_V5V)             =   -2.510mA  \   -7.495mA
+    I(X_U1.V17)               =   -6.114pA  \    30.33mA
+
+  These devices failed to converge:
+    D_D1      X_U1.EBREF1 X_U1.EBENVCC X_U1.EB7  X_U1.EBSSEN X_U1.X66.EB1 
+    X_U1.X22.X1.EB1 X_U1.X22.X2.EB1 X_U1.X6.X1.EB1 X_U1.X6.X2.EB1 X_U1.GBTON 
+
+
+
+  Last node voltages tried were:
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   IN)   32.0000  (  OUT) 434.7E-15  (N14760) 434.7E-15 (N15115)   30.9880     
+
+(N15144)   31.8690 (N15182)    4.2123 (N15229)   32.0000 (N15292)   32.0000     
+
+(X_M1.3)    4.5088 (X_M1.5)   28.9640 (X_U1.1)    0.0000 (X_U1.4) 30.57E-12     
+
+(X_U1.7) 298.3E-06 (N149361) 3.118E-09                   (N149367)    0.0000    
+
+(X_U1.15) 6.996E-09                   (X_U1.22) 3.118E-09                       
+
+(X_U1.24)    0.0000                   (X_U1.28)    0.0000                       
+
+(X_U1.45)-6.553E-06                   (X_U1.46)-3.057E-09                       
+
+(X_U1.49)     .6020                   (X_U1.50)     .6000                       
+
+(X_U1.54)     .7003                   (X_U1.CL)    0.0000                       
+
+(X_U1.HI)    5.0000                   (X_U1.LO)     .0140                       
+
+(X_U1.OV)    0.0000                   (X_U1.QN)     .6000                       
+
+(X_U1.SS) 6.996E-09                   (X_U1.111)   32.0000                      
+
+(X_U1.ONT)    0.0000                  (X_U1.REF)    1.2500                      
+
+(X_U1.SSV)  -32.0000                  (X_U1.V5V)    5.0000                      
+
+(X_U1.COMP)    0.0000                 (X_U1.ENON)     .0101                     
+
+(X_U1.OFFT)    0.0000                 (X_U1.REF1)    1.2500                     
+
+(X_U1.VSDN)    0.0000                 (X_U1.X2.3)    5.0000                     
+
+(X_U1.X5.4)     .1000                 (X_U1.X8.3)     .1000                     
+
+(X_U1.DRIVE)     .6000                (X_U1.ENINT)    2.5000                    
+
+(X_U1.INVCL)     .7003                (X_U1.X66.6)     .1002                    
+
+(X_U1.X67.3)     .1000                (X_U1.X68.3)    5.0000                    
+
+(X_U1.X69.4)    0.0000                (X_U1.X69.5)    0.0000                    
+
+(X_U1.X71.4)    5.0000                (X_U1.XA1.4)    0.0000                    
+
+(X_U1.XA2.4)    0.0000                (X_U1.XCL.4)    5.0000                    
+
+(X_U1.XCL.5)    0.0000                (X_U1.XFB.4)    5.0000                    
+
+(X_U1.XFB.5)    0.0000                (X_M1.XESD.6)   30.9880                   
+
+(X_M1.XESD.7)   30.9880               (X_M1.XESD.8)   31.0240                   
+
+(X_M1.XESD.9)   28.9640               (X_U1.CAPOFF) 40.96E-06                   
+
+(X_U1.DRVNOT)     .6000               (X_U1.ONCOMP)     .0140                   
+
+(X_U1.QLATCH)     .6000               (X_U1.XOFF.4)    0.0000                   
+
+(X_U1.XOFF.5)    0.0000               (X_M1.XESD.10)   28.9910                  
+
+(X_U1.INVCOMP)     .7003              (X_U1.VCCUVLO) 2.500E-09                  
+
+(X_U1.X6.X1.4) 222.1E-06              (X_U1.X6.X2.4) 222.1E-06                  
+
+(X_U1.OFFRESET)     .6020             (X_U1.X22.X1.4) 222.1E-06                 
+
+(X_U1.X22.X2.4) 222.1E-06             (X_U1.IFAULTCLEAR)    0.0000          
+
+Resuming Simulation with the following settings
+ITL4 = 1000
+ABSTOL = 2e-006
+VNTOL = 0.001
+
+Convergence problem in transient analysis at Time =  13.66E-12
+         Time step =  40.80E-21, minimum allowable step size =  50.00E-21
+
+  These voltages failed to converge:
+
+    V(N149361)                =    3.118nV  \     16.53V
+    V(N149367)                =         0V  \     32.00V
+    V(X_U1.ENON)              =    5.878mV  \     4.995V
+    V(X_U1.22)                =    3.118nV  \     16.53V
+    V(X_U1.4)                 =    30.57pV  \     15.85V
+    V(X_U1.46)                =   -3.057nV  \     15.17V
+    V(X_U1.SSV)               =    -32.00V  \   518.40nV
+
+  These supply currents failed to converge:
+
+    I(X_U1.EB7)               =         0A  \   -62.50mA
+    I(V_V1)                   =    -13.09A  \    -13.34A
+    I(X_U1.V_V5V)             =   -2.506mA  \   -7.495mA
+    I(X_U1.V17)               =   -6.114pA  \    30.33mA
+
+  These devices failed to converge:
+    D_D1      X_U1.EBREF1 X_U1.EBENVCC X_U1.EB7  X_U1.EBSSEN X_U1.GBTON 
+
+
+
+  Last node voltages tried were:
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   IN)   32.0000  (  OUT) 434.7E-15  (N14760) 434.7E-15 (N15115)   30.9880     
+
+(N15144)   31.8690 (N15182)    4.2123 (N15229)   32.0000 (N15292)   32.0000     
+
+(X_M1.3)    4.5088 (X_M1.5)   28.9640 (X_U1.1)    0.0000 (X_U1.4) 30.57E-12     
+
+(X_U1.7) 298.3E-06 (N149361) 3.118E-09                   (N149367)    0.0000    
+
+(X_U1.15) 6.996E-09                   (X_U1.22) 3.118E-09                       
+
+(X_U1.24)    0.0000                   (X_U1.28)    0.0000                       
+
+(X_U1.45)-6.553E-06                   (X_U1.46)-3.057E-09                       
+
+(X_U1.49)     .6020                   (X_U1.50)     .6000                       
+
+(X_U1.54)     .7003                   (X_U1.CL)    0.0000                       
+
+(X_U1.HI)    5.0000                   (X_U1.LO)     .0140                       
+
+(X_U1.OV)    0.0000                   (X_U1.QN)     .6000                       
+
+(X_U1.SS) 6.996E-09                   (X_U1.111)   32.0000                      
+
+(X_U1.ONT)    0.0000                  (X_U1.REF)    1.2500                      
+
+(X_U1.SSV)  -32.0000                  (X_U1.V5V)    5.0000                      
+
+(X_U1.COMP)    0.0000                 (X_U1.ENON)     .0059                     
+
+(X_U1.OFFT)    0.0000                 (X_U1.REF1)    1.2500                     
+
+(X_U1.VSDN)    0.0000                 (X_U1.X2.3)    5.0000                     
+
+(X_U1.X5.4)     .1000                 (X_U1.X8.3)     .1000                     
+
+(X_U1.DRIVE)     .6000                (X_U1.ENINT)    2.5000                    
+
+(X_U1.INVCL)     .7003                (X_U1.X66.6)     .1000                    
+
+(X_U1.X67.3)     .1000                (X_U1.X68.3)    5.0000                    
+
+(X_U1.X69.4)    0.0000                (X_U1.X69.5)    0.0000                    
+
+(X_U1.X71.4)    5.0000                (X_U1.XA1.4)    0.0000                    
+
+(X_U1.XA2.4)    0.0000                (X_U1.XCL.4)    5.0000                    
+
+(X_U1.XCL.5)    0.0000                (X_U1.XFB.4)    5.0000                    
+
+(X_U1.XFB.5)    0.0000                (X_M1.XESD.6)   30.9880                   
+
+(X_M1.XESD.7)   30.9880               (X_M1.XESD.8)   31.0240                   
+
+(X_M1.XESD.9)   28.9640               (X_U1.CAPOFF) 40.96E-06                   
+
+(X_U1.DRVNOT)     .6000               (X_U1.ONCOMP)     .0140                   
+
+(X_U1.QLATCH)     .6000               (X_U1.XOFF.4)    0.0000                   
+
+(X_U1.XOFF.5)    0.0000               (X_M1.XESD.10)   28.9910                  
+
+(X_U1.INVCOMP)     .7003              (X_U1.VCCUVLO) 2.500E-09                  
+
+(X_U1.X6.X1.4) 11.19E-06              (X_U1.X6.X2.4) 11.19E-06                  
+
+(X_U1.OFFRESET)     .6020             (X_U1.X22.X1.4) 11.19E-06                 
+
+(X_U1.X22.X2.4) 11.19E-06             (X_U1.IFAULTCLEAR)    0.0000          
+
+Resuming Simulation with the following settings
+RELTOL = 0.0086
+ABSTOL = 0.001
+
+Convergence problem in transient analysis at Time =  13.66E-12
+         Time step =  40.80E-21, minimum allowable step size =  50.00E-21
+
+  These voltages failed to converge:
+
+    V(N149361)                =    3.118nV  \     16.53V
+    V(N149367)                =         0V  \     32.00V
+    V(X_U1.ENON)              =    5.878mV  \     4.995V
+    V(X_U1.22)                =    3.118nV  \     16.53V
+    V(X_U1.4)                 =    30.57pV  \     15.85V
+    V(X_U1.46)                =   -3.057nV  \     15.17V
+    V(X_U1.SSV)               =    -32.00V  \   518.40nV
+
+  These supply currents failed to converge:
+
+    I(X_U1.EB7)               =         0A  \   -62.50mA
+    I(V_V1)                   =    -13.09A  \    -13.34A
+    I(X_U1.V_V5V)             =   -2.506mA  \   -7.495mA
+    I(X_U1.V17)               =   -6.114pA  \    30.33mA
+
+  These devices failed to converge:
+    X_U1.EBREF1 X_U1.EBENVCC X_U1.EB7  X_U1.EBSSEN 
+
+
+
+  Last node voltages tried were:
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   IN)   32.0000  (  OUT) 434.7E-15  (N14760) 434.7E-15 (N15115)   30.9880     
+
+(N15144)   31.8690 (N15182)    4.2123 (N15229)   32.0000 (N15292)   32.0000     
+
+(X_M1.3)    4.5088 (X_M1.5)   28.9640 (X_U1.1)    0.0000 (X_U1.4) 30.57E-12     
+
+(X_U1.7) 298.3E-06 (N149361) 3.118E-09                   (N149367)    0.0000    
+
+(X_U1.15) 6.996E-09                   (X_U1.22) 3.118E-09                       
+
+(X_U1.24)    0.0000                   (X_U1.28)    0.0000                       
+
+(X_U1.45)-6.553E-06                   (X_U1.46)-3.057E-09                       
+
+(X_U1.49)     .6020                   (X_U1.50)     .6000                       
+
+(X_U1.54)     .7003                   (X_U1.CL)    0.0000                       
+
+(X_U1.HI)    5.0000                   (X_U1.LO)     .0140                       
+
+(X_U1.OV)    0.0000                   (X_U1.QN)     .6000                       
+
+(X_U1.SS) 6.996E-09                   (X_U1.111)   32.0000                      
+
+(X_U1.ONT)    0.0000                  (X_U1.REF)    1.2500                      
+
+(X_U1.SSV)  -32.0000                  (X_U1.V5V)    5.0000                      
+
+(X_U1.COMP)    0.0000                 (X_U1.ENON)     .0059                     
+
+(X_U1.OFFT)    0.0000                 (X_U1.REF1)    1.2500                     
+
+(X_U1.VSDN)    0.0000                 (X_U1.X2.3)    5.0000                     
+
+(X_U1.X5.4)     .1000                 (X_U1.X8.3)     .1000                     
+
+(X_U1.DRIVE)     .6000                (X_U1.ENINT)    2.5000                    
+
+(X_U1.INVCL)     .7003                (X_U1.X66.6)     .1000                    
+
+(X_U1.X67.3)     .1000                (X_U1.X68.3)    5.0000                    
+
+(X_U1.X69.4)    0.0000                (X_U1.X69.5)    0.0000                    
+
+(X_U1.X71.4)    5.0000                (X_U1.XA1.4)    0.0000                    
+
+(X_U1.XA2.4)    0.0000                (X_U1.XCL.4)    5.0000                    
+
+(X_U1.XCL.5)    0.0000                (X_U1.XFB.4)    5.0000                    
+
+(X_U1.XFB.5)    0.0000                (X_M1.XESD.6)   30.9880                   
+
+(X_M1.XESD.7)   30.9880               (X_M1.XESD.8)   31.0240                   
+
+(X_M1.XESD.9)   28.9640               (X_U1.CAPOFF) 40.96E-06                   
+
+(X_U1.DRVNOT)     .6000               (X_U1.ONCOMP)     .0140                   
+
+(X_U1.QLATCH)     .6000               (X_U1.XOFF.4)    0.0000                   
+
+(X_U1.XOFF.5)    0.0000               (X_M1.XESD.10)   28.9910                  
+
+(X_U1.INVCOMP)     .7003              (X_U1.VCCUVLO) 2.500E-09                  
+
+(X_U1.X6.X1.4) 10.70E-06              (X_U1.X6.X2.4) 10.70E-06                  
+
+(X_U1.OFFRESET)     .6020             (X_U1.X22.X1.4) 10.70E-06                 
+
+(X_U1.X22.X2.4) 10.70E-06             (X_U1.IFAULTCLEAR)    0.0000          
+
+Resuming Simulation with the following settings
+RELTOL = 0.05
+
+Convergence problem in transient analysis at Time =  13.66E-12
+         Time step =  40.80E-21, minimum allowable step size =  50.00E-21
+
+  These voltages failed to converge:
+
+    V(N149361)                =    3.118nV  \     16.53V
+    V(N149367)                =         0V  \     32.00V
+    V(X_U1.22)                =    3.118nV  \     16.53V
+    V(X_U1.4)                 =    30.57pV  \     15.85V
+    V(X_U1.46)                =   -3.057nV  \     15.17V
+    V(X_U1.SSV)               =    -32.00V  \   518.40nV
+
+  These supply currents failed to converge:
+
+    I(X_U1.EB7)               =         0A  \   -62.50mA
+    I(X_U1.V17)               =   -6.114pA  \    30.33mA
+
+  These devices failed to converge:
+    X_U1.EB7  
+
+
+
+  Last node voltages tried were:
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   IN)   32.0000  (  OUT) 434.7E-15  (N14760) 434.7E-15 (N15115)   30.9880     
+
+(N15144)   31.8690 (N15182)    4.2123 (N15229)   32.0000 (N15292)   32.0000     
+
+(X_M1.3)    4.5088 (X_M1.5)   28.9640 (X_U1.1)    0.0000 (X_U1.4) 30.57E-12     
+
+(X_U1.7) 298.3E-06 (N149361) 3.118E-09                   (N149367)    0.0000    
+
+(X_U1.15) 6.996E-09                   (X_U1.22) 3.118E-09                       
+
+(X_U1.24)    0.0000                   (X_U1.28)    0.0000                       
+
+(X_U1.45)-6.553E-06                   (X_U1.46)-3.057E-09                       
+
+(X_U1.49)     .6020                   (X_U1.50)     .6000                       
+
+(X_U1.54)     .7003                   (X_U1.CL)    0.0000                       
+
+(X_U1.HI)    5.0000                   (X_U1.LO)     .0140                       
+
+(X_U1.OV)    0.0000                   (X_U1.QN)     .6000                       
+
+(X_U1.SS) 6.996E-09                   (X_U1.111)   32.0000                      
+
+(X_U1.ONT)    0.0000                  (X_U1.REF)    1.2500                      
+
+(X_U1.SSV)  -32.0000                  (X_U1.V5V)    5.0000                      
+
+(X_U1.COMP)    0.0000                 (X_U1.ENON)    4.7568                     
+
+(X_U1.OFFT)    0.0000                 (X_U1.REF1)    1.2500                     
+
+(X_U1.VSDN)    0.0000                 (X_U1.X2.3)    5.0000                     
+
+(X_U1.X5.4)     .1000                 (X_U1.X8.3)     .1000                     
+
+(X_U1.DRIVE)     .6000                (X_U1.ENINT)    2.5000                    
+
+(X_U1.INVCL)     .7003                (X_U1.X66.6)     .1000                    
+
+(X_U1.X67.3)     .1000                (X_U1.X68.3)    5.0000                    
+
+(X_U1.X69.4)    0.0000                (X_U1.X69.5)    0.0000                    
+
+(X_U1.X71.4)    5.0000                (X_U1.XA1.4)    0.0000                    
+
+(X_U1.XA2.4)    0.0000                (X_U1.XCL.4)    5.0000                    
+
+(X_U1.XCL.5)    0.0000                (X_U1.XFB.4)    5.0000                    
+
+(X_U1.XFB.5)    0.0000                (X_M1.XESD.6)   30.9880                   
+
+(X_M1.XESD.7)   30.9880               (X_M1.XESD.8)   31.0240                   
+
+(X_M1.XESD.9)   28.9640               (X_U1.CAPOFF) 40.96E-06                   
+
+(X_U1.DRVNOT)     .6000               (X_U1.ONCOMP)     .0140                   
+
+(X_U1.QLATCH)     .6000               (X_U1.XOFF.4)    0.0000                   
+
+(X_U1.XOFF.5)    0.0000               (X_M1.XESD.10)   28.9910                  
+
+(X_U1.INVCOMP)     .7003              (X_U1.VCCUVLO) 2.500E-09                  
+
+(X_U1.X6.X1.4) 8.658E-06              (X_U1.X6.X2.4) 8.658E-06                  
+
+(X_U1.OFFRESET)     .6020             (X_U1.X22.X1.4) 8.658E-06                 
+
+(X_U1.X22.X2.4) 8.658E-06             (X_U1.IFAULTCLEAR)    0.0000          
+
+Resuming could not converge the circuit, restarting it now
+
+  These voltages failed to converge:
+
+    V(N15292)                 =         0V  \     32.00V
+    V(N149361)                =    10.00GV  \    3.118nV
+    V(N149367)                =    10.00GV  \         0V
+    V(X_U1.ENON)              =    10.00GV  \     4.757V
+    V(N15115)                 =      9.65V  \     30.99V
+    V(X_U1.111)               =  -308.30pV  \     32.00V
+    V(X_U1.15)                =    240.61V  \    6.996nV
+    V(X_U1.SS)                =    240.61V  \    6.996nV
+    V(X_U1.7)                 =    10.00GV  \   298.26uV
+    V(X_U1.22)                =    10.00GV  \    3.118nV
+    V(X_U1.4)                 =    10.00GV  \    30.57pV
+    V(X_U1.46)                =    10.00GV  \   -3.057nV
+    V(X_U1.45)                =    10.00GV  \   -6.553uV
+    V(X_U1.SSV)               =    10.00GV  \    -32.00V
+    V(X_M1.XESD.6)            =      9.65V  \     30.99V
+    V(X_M1.XESD.7)            =      9.65V  \     30.99V
+    V(X_M1.XESD.8)            =      9.69V  \     31.02V
+
+  These supply currents failed to converge:
+
+    I(X_U1.EB4)               =   193.08mA  \   -20.24mA
+    I(X_U1.EB7)               =   -10.00GA  \         0A
+    I(X_U1.EBSSV)             =   -10.00GA  \    64.89pA
+    I(V_V1)                   =   -10.00GA  \    -13.09A
+    I(X_U1.VL)                =    10.00GA  \   -32.77pA
+    I(X_U1.V_V5V)             =   -10.00GA  \   -7.257mA
+    I(X_U1.V17)               =    10.00GA  \   -6.114pA
+
+  These devices failed to converge:
+    X_M1.XESD.d1 X_M1.XESD.d3 X_U1.EBREF X_U1.EB7  X_U1.EBFB X_U1.EBSSV 
+    X_U1.GBTON X_U1.QSS2 
+Restarting Simulation with the following settings
+ITL4 = 1000
+RELTOL = 0.0086
+ABSTOL = 2e-006
+
+Convergence problem in transient analysis at Time =  11.25E-12
+         Time step =  1.563E-21, minimum allowable step size =  5.815E-21
+
+  These voltages failed to converge:
+
+    V(N149361)                =    8.590GV  \     20.34V
+    V(N149367)                =    8.590GV  \     39.69V
+    V(X_U1.ENON)              =    3.259MV  \     4.995V
+    V(X_U1.ENINT)             =     1.667V  \    5.000nV
+    V(X_U1.VCCUVLO)           =     1.666V  \ 5.000e-18V
+    V(X_U1.22)                =    8.590GV  \     20.34V
+    V(X_U1.4)                 =    4.295GV  \     19.65V
+    V(X_U1.46)                =    223.52V  \     18.97V
+
+  These supply currents failed to converge:
+
+    I(X_U1.EB7)               =         0A  \   -37.93mA
+    I(V_V1)                   =    -23.58A  \    -19.62A
+    I(X_U1.V_V5V)             =   -3.259KA  \   -4.995mA
+    I(X_U1.V17)               =   447.03mA  \    37.93mA
+
+  These devices failed to converge:
+    D_D1      X_U1.DON1 X_U1.DON2 X_U1.GBTON 
+
+
+
+  Last node voltages tried were:
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   IN)   32.0000  (  OUT) 348.1E-15  (N14760) 348.1E-15 (N15115)   30.9530     
+
+(N15144)   31.8040 (N15182)    4.5460 (N15229)   32.0000 (N15292)   32.0000     
+
+(X_M1.3)    4.7746 (X_M1.5)   28.8580 (X_U1.1)    0.0000 (X_U1.4) 4.295E+09     
+
+(X_U1.7) 253.4E-06 (N149361) 8.590E+09                   (N149367) 8.590E+09    
+
+(X_U1.15) 5.761E-09                   (X_U1.22) 8.590E+09                       
+
+(X_U1.24)    0.0000                   (X_U1.28)    0.0000                       
+
+(X_U1.45)    3.1338                   (X_U1.46)  223.5200                       
+
+(X_U1.49)     .5790                   (X_U1.50)     .5790                       
+
+(X_U1.54)     .5790                   (X_U1.CL)    0.0000                       
+
+(X_U1.HI)    5.0000                   (X_U1.LO)     .0116                       
+
+(X_U1.OV)    0.0000                   (X_U1.QN)     .5790                       
+
+(X_U1.SS) 5.761E-09                   (X_U1.111)   32.0000                      
+
+(X_U1.ONT)    0.0000                  (X_U1.REF)    1.2500                      
+
+(X_U1.SSV)    3.8000                  (X_U1.V5V)    5.0000                      
+
+(X_U1.COMP)    0.0000                 (X_U1.ENON) 3.259E+06                     
+
+(X_U1.OFFT)    0.0000                 (X_U1.REF1)    1.2500                     
+
+(X_U1.VSDN)    0.0000                 (X_U1.X2.3)    5.0000                     
+
+(X_U1.X5.4)     .1000                 (X_U1.X8.3)    5.0000                     
+
+(X_U1.DRIVE)     .5790                (X_U1.ENINT)    1.6672                    
+
+(X_U1.INVCL)     .5790                (X_U1.X66.6)    5.0000                    
+
+(X_U1.X67.3)     .1000                (X_U1.X68.3)    5.0000                    
+
+(X_U1.X69.4)    0.0000                (X_U1.X69.5)    0.0000                    
+
+(X_U1.X71.4)    5.0000                (X_U1.XA1.4)    5.0000                    
+
+(X_U1.XA2.4)    0.0000                (X_U1.XCL.4)    5.0000                    
+
+(X_U1.XCL.5)    0.0000                (X_U1.XFB.4)    5.0000                    
+
+(X_U1.XFB.5)    0.0000                (X_M1.XESD.6)   30.9530                   
+
+(X_M1.XESD.7)   30.9530               (X_M1.XESD.8)   30.9880                   
+
+(X_M1.XESD.9)   28.8580               (X_U1.CAPOFF) 33.72E-06                   
+
+(X_U1.DRVNOT)     .5790               (X_U1.ONCOMP)     .0116                   
+
+(X_U1.QLATCH)     .5790               (X_U1.XOFF.4)    0.0000                   
+
+(X_U1.XOFF.5)    0.0000               (X_M1.XESD.10)   28.8850                  
+
+(X_U1.INVCOMP)     .5790              (X_U1.VCCUVLO)    1.6656                  
+
+(X_U1.X6.X1.4)    5.0000              (X_U1.X6.X2.4)    5.0000                  
+
+(X_U1.OFFRESET)     .5790             (X_U1.X22.X1.4)    5.0000                 
+
+(X_U1.X22.X2.4)    5.0000             (X_U1.IFAULTCLEAR)    0.0000          
+
+Resuming Simulation with the following settings
+RELTOL = 0.05
+ABSTOL = 0.001
+
+Convergence problem in transient analysis at Time =  11.25E-12
+         Time step =  1.563E-21, minimum allowable step size =  5.815E-21
+
+  These voltages failed to converge:
+
+    V(N149361)                =    8.590GV  \     20.34V
+    V(N149367)                =    8.590GV  \     39.69V
+    V(X_U1.ENON)              =    3.259MV  \     4.995V
+    V(X_U1.ENINT)             =     1.667V  \    5.000nV
+    V(X_U1.VCCUVLO)           =     1.666V  \ 5.000e-18V
+    V(X_U1.22)                =    8.590GV  \     20.34V
+    V(X_U1.4)                 =    4.295GV  \     19.65V
+    V(X_U1.46)                =    223.52V  \     18.97V
+
+  These supply currents failed to converge:
+
+    I(X_U1.EB7)               =         0A  \   -37.93mA
+    I(V_V1)                   =    -23.58A  \    -19.62A
+    I(X_U1.V_V5V)             =   -3.259KA  \   -4.995mA
+    I(X_U1.V17)               =   447.03mA  \    37.93mA
+
+  These devices failed to converge:
+    D_D1      X_U1.DON1 X_U1.DON2 X_U1.GBTON 
+
+
+
+  Last node voltages tried were:
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   IN)   32.0000  (  OUT) 348.1E-15  (N14760) 348.1E-15 (N15115)   30.9530     
+
+(N15144)   31.8040 (N15182)    4.5460 (N15229)   32.0000 (N15292)   32.0000     
+
+(X_M1.3)    4.7746 (X_M1.5)   28.8580 (X_U1.1)    0.0000 (X_U1.4) 4.295E+09     
+
+(X_U1.7) 253.4E-06 (N149361) 8.590E+09                   (N149367) 8.590E+09    
+
+(X_U1.15) 5.761E-09                   (X_U1.22) 8.590E+09                       
+
+(X_U1.24)    0.0000                   (X_U1.28)    0.0000                       
+
+(X_U1.45)    3.1338                   (X_U1.46)  223.5200                       
+
+(X_U1.49)     .5790                   (X_U1.50)     .5790                       
+
+(X_U1.54)     .5790                   (X_U1.CL)    0.0000                       
+
+(X_U1.HI)    5.0000                   (X_U1.LO)     .0116                       
+
+(X_U1.OV)    0.0000                   (X_U1.QN)     .5790                       
+
+(X_U1.SS) 5.761E-09                   (X_U1.111)   32.0000                      
+
+(X_U1.ONT)    0.0000                  (X_U1.REF)    1.2500                      
+
+(X_U1.SSV)    3.8000                  (X_U1.V5V)    5.0000                      
+
+(X_U1.COMP)    0.0000                 (X_U1.ENON) 3.259E+06                     
+
+(X_U1.OFFT)    0.0000                 (X_U1.REF1)    1.2500                     
+
+(X_U1.VSDN)    0.0000                 (X_U1.X2.3)    5.0000                     
+
+(X_U1.X5.4)     .1000                 (X_U1.X8.3)    5.0000                     
+
+(X_U1.DRIVE)     .5790                (X_U1.ENINT)    1.6672                    
+
+(X_U1.INVCL)     .5790                (X_U1.X66.6)    5.0000                    
+
+(X_U1.X67.3)     .1000                (X_U1.X68.3)    5.0000                    
+
+(X_U1.X69.4)    0.0000                (X_U1.X69.5)    0.0000                    
+
+(X_U1.X71.4)    5.0000                (X_U1.XA1.4)    5.0000                    
+
+(X_U1.XA2.4)    0.0000                (X_U1.XCL.4)    5.0000                    
+
+(X_U1.XCL.5)    0.0000                (X_U1.XFB.4)    5.0000                    
+
+(X_U1.XFB.5)    0.0000                (X_M1.XESD.6)   30.9530                   
+
+(X_M1.XESD.7)   30.9530               (X_M1.XESD.8)   30.9880                   
+
+(X_M1.XESD.9)   28.8580               (X_U1.CAPOFF) 33.72E-06                   
+
+(X_U1.DRVNOT)     .5790               (X_U1.ONCOMP)     .0116                   
+
+(X_U1.QLATCH)     .5790               (X_U1.XOFF.4)    0.0000                   
+
+(X_U1.XOFF.5)    0.0000               (X_M1.XESD.10)   28.8850                  
+
+(X_U1.INVCOMP)     .5790              (X_U1.VCCUVLO)    1.6656                  
+
+(X_U1.X6.X1.4)    5.0000              (X_U1.X6.X2.4)    5.0000                  
+
+(X_U1.OFFRESET)     .5790             (X_U1.X22.X1.4)    5.0000                 
+
+(X_U1.X22.X2.4)    5.0000             (X_U1.IFAULTCLEAR)    0.0000          
+
+Resuming could not converge the circuit, restarting it now
+
+  These voltages failed to converge:
+
+    V(N149361)                =     1.425V  \    8.590GV
+    V(N149367)                =         0V  \    8.590GV
+    V(X_U1.ENON)              =  -591.10KV  \    3.259MV
+    V(X_U1.22)                =     1.425V  \    8.590GV
+    V(X_U1.4)                 =    29.89mV  \    4.295GV
+    V(X_U1.46)                =    -1.366V  \    223.52V
+
+  These supply currents failed to converge:
+
+    I(X_U1.V_V5V)             =    591.09A  \   -3.259KA
+    I(X_U1.V17)               =   -2.795mA  \   447.03mA
+
+  These devices failed to converge:
+    X_U1.DON1 X_U1.DON2 X_U1.EBREF1 X_U1.EBENVCC X_U1.EB7  X_U1.EBSSEN 
+    X_U1.EBSSV X_U1.GBTON 
+Restarting Simulation with the following settings
+RELTOL = 0.05
+ABSTOL = 0.001
+
+Convergence problem in transient analysis at Time =  11.25E-12
+         Time step =  195.3E-24, minimum allowable step size =  1.000E-21
+
+  These voltages failed to converge:
+
+    V(N149361)                =    3.156nV  \     20.34V
+    V(N149367)                =         0V  \     39.69V
+    V(X_U1.ENON)              =    5.878mV  \     4.995V
+    V(X_U1.ENINT)             =     1.667V  \    5.000nV
+    V(X_U1.VCCUVLO)           =     1.666V  \ 5.000e-18V
+    V(X_U1.22)                =    3.156nV  \     20.34V
+    V(X_U1.4)                 =    84.42nV  \     19.65V
+    V(X_U1.46)                =   -3.094nV  \     18.97V
+
+  These supply currents failed to converge:
+
+    I(X_U1.EB7)               =         0A  \   -37.96mA
+    I(X_U1.V_V5V)             =   -3.339mA  \   -4.995mA
+    I(X_U1.V17)               =   -6.188pA  \    37.93mA
+
+  These devices failed to converge:
+    D_D1      X_U1.EBREF1 X_U1.EBENVCC X_U1.EB7  X_U1.EBSSEN X_U1.EBSSV 
+
+
+
+  Last node voltages tried were:
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   IN)   32.0000  (  OUT) 348.1E-15  (N14760) 348.1E-15 (N15115)   30.9510     
+
+(N15144)   31.8020 (N15182)    4.6577 (N15229)   32.0000 (N15292)   32.0000     
+
+(X_M1.3)    4.8873 (X_M1.5)   28.8530 (X_U1.1)    0.0000 (X_U1.4) 84.42E-09     
+
+(X_U1.7) 245.6E-06 (N149361) 3.156E-09                   (N149367)    0.0000    
+
+(X_U1.15) 5.711E-09                   (X_U1.22) 3.156E-09                       
+
+(X_U1.24)    0.0000                   (X_U1.28)    0.0000                       
+
+(X_U1.45)    3.0795                   (X_U1.46)-3.094E-09                       
+
+(X_U1.49)     .5790                   (X_U1.50)     .5790                       
+
+(X_U1.54)     .5790                   (X_U1.CL)    0.0000                       
+
+(X_U1.HI)    5.0000                   (X_U1.LO)     .0116                       
+
+(X_U1.OV)    0.0000                   (X_U1.QN)     .5790                       
+
+(X_U1.SS) 5.711E-09                   (X_U1.111)   32.0000                      
+
+(X_U1.ONT)    0.0000                  (X_U1.REF)    1.2500                      
+
+(X_U1.SSV)    3.8000                  (X_U1.V5V)    5.0000                      
+
+(X_U1.COMP)    0.0000                 (X_U1.ENON)     .0059                     
+
+(X_U1.OFFT)    0.0000                 (X_U1.REF1)    1.2500                     
+
+(X_U1.VSDN)    0.0000                 (X_U1.X2.3)    5.0000                     
+
+(X_U1.X5.4)     .1000                 (X_U1.X8.3)    5.0000                     
+
+(X_U1.DRIVE)     .5790                (X_U1.ENINT)    1.6672                    
+
+(X_U1.INVCL)     .5790                (X_U1.X66.6)    5.0000                    
+
+(X_U1.X67.3)     .1000                (X_U1.X68.3)    5.0000                    
+
+(X_U1.X69.4)    0.0000                (X_U1.X69.5)    0.0000                    
+
+(X_U1.X71.4)    5.0000                (X_U1.XA1.4)    5.0000                    
+
+(X_U1.XA2.4)    0.0000                (X_U1.XCL.4)    5.0000                    
+
+(X_U1.XCL.5)    0.0000                (X_U1.XFB.4)    5.0000                    
+
+(X_U1.XFB.5)    0.0000                (X_M1.XESD.6)   30.9510                   
+
+(X_M1.XESD.7)   30.9510               (X_M1.XESD.8)   30.9870                   
+
+(X_M1.XESD.9)   28.8530               (X_U1.CAPOFF) 33.72E-06                   
+
+(X_U1.DRVNOT)     .5790               (X_U1.ONCOMP)     .0116                   
+
+(X_U1.QLATCH)     .5790               (X_U1.XOFF.4)    0.0000                   
+
+(X_U1.XOFF.5)    0.0000               (X_M1.XESD.10)   28.8800                  
+
+(X_U1.INVCOMP)     .5790              (X_U1.VCCUVLO)    1.6656                  
+
+(X_U1.X6.X1.4)    5.0000              (X_U1.X6.X2.4)    5.0000                  
+
+(X_U1.OFFRESET)     .5790             (X_U1.X22.X1.4)    5.0000                 
+
+(X_U1.X22.X2.4)    5.0000             (X_U1.IFAULTCLEAR)    0.0000          
+
+Resuming could not converge the circuit, restarting it now
+
+  These voltages failed to converge:
+
+    V(N15292)                 =         0V  \     32.00V
+    V(N149361)                =    10.00GV  \    3.156nV
+    V(N149367)                =    10.00GV  \         0V
+    V(X_U1.REF1)              =         0V  \     1.250V
+    V(X_U1.ENON)              =    4.995mV  \    5.878mV
+    V(N15115)                 =      9.62V  \     30.95V
+    V(X_U1.111)               =   -2.622pV  \     32.00V
+    V(X_U1.24)                =     5.000V  \         0V
+    V(X_U1.15)                =    1.179GV  \    5.711nV
+    V(X_U1.SS)                =    1.179GV  \    5.711nV
+    V(X_U1.7)                 =    10.00GV  \   245.59uV
+    V(X_U1.22)                =    10.00GV  \    3.156nV
+    V(X_U1.4)                 =    10.00GV  \    84.42nV
+    V(X_U1.46)                =    10.00GV  \   -3.094nV
+    V(X_U1.VSDN)              =     5.000V  \         0V
+    V(X_U1.45)                =    10.00GV  \     3.080V
+    V(X_U1.SSV)               =    10.00GV  \     3.800V
+    V(X_M1.XESD.6)            =      9.62V  \     30.95V
+    V(X_M1.XESD.7)            =      9.62V  \     30.95V
+    V(X_M1.XESD.8)            =      9.65V  \     30.99V
+
+  These supply currents failed to converge:
+
+    I(X_U1.EB4)               =   192.34mA  \   -20.98mA
+    I(X_U1.EB7)               =   -10.00GA  \         0A
+    I(X_U1.EBSSV)             =   -10.00GA  \   -30.49uA
+    I(V_V1)                   =   -10.00GA  \    -19.76A
+    I(X_U1.VL)                =    10.00GA  \    15.40uA
+    I(X_U1.V17)               =    10.00GA  \   -6.188pA
+
+  These devices failed to converge:
+    X_M1.XESD.d1 X_M1.XESD.d3 X_U1.EBREF X_U1.EB7  X_U1.EBFB X_U1.EBSSV 
+    X_U1.GBTON X_U1.MSS  X_U1.QSS1 X_U1.QSS2 
+
+ERROR(ORPSIM-15138): Convergence problem in transient analysis at Time =  11.25E-12.
+         Time step =  195.3E-24, minimum allowable step size =  1.000E-21
+
+  These voltages failed to converge:
+
+    V(N15292)                 =     32.00V  \         0V
+    V(N149361)                = 271.85e-24V  \    10.00GV
+    V(N149367)                =         0V  \    10.00GV
+    V(X_U1.ENON)              =     4.995V  \    4.995mV
+    V(N15115)                 =     30.69V  \      9.62V
+    V(X_U1.111)               =     32.00V  \   -2.622pV
+    V(X_U1.REF)               =     32.00V  \     1.250V
+    V(X_U1.15)                =         0V  \    1.179GV
+    V(X_U1.SS)                = -8.333e-18V  \    1.179GV
+    V(X_U1.7)                 =   245.33uV  \    10.00GV
+    V(X_U1.22)                = 271.85e-24V  \    10.00GV
+    V(X_U1.4)                 =    8.101fV  \    10.00GV
+    V(X_U1.46)                = -266.52e-24V  \    10.00GV
+    V(X_U1.45)                =   778.18nV  \    10.00GV
+    V(X_U1.SSV)               =     3.800V  \    10.00GV
+    V(X_M1.XESD.6)            =     30.68V  \      9.62V
+    V(X_M1.XESD.7)            =     30.69V  \      9.62V
+    V(X_M1.XESD.8)            =     25.13V  \      9.65V
+
+  These supply currents failed to converge:
+
+    I(X_U1.EB4)               =   -26.29mA  \   192.34mA
+    I(X_U1.EB7)               =         0A  \   -10.00GA
+    I(X_U1.EBSSV)             =   -7.706pA  \   -10.00GA
+    I(V_V1)                   =    -19.76A  \   -10.00GA
+    I(X_U1.VL)                =    3.891pA  \    10.00GA
+    I(X_U1.V_V5V)             =   -8.328mA  \   -3.338mA
+    I(X_U1.V17)               = -533.04e-27A  \    10.00GA
+
+  These devices failed to converge:
+    X_M1.XESD.d1 X_U1.EBREF1 X_U1.EBREF X_U1.EBENVCC X_U1.EB7  X_U1.EBSSEN 
+    X_U1.EBSSV X_U1.XFB.EB1 X_U1.QSS1 X_U1.QSS2 
+
+
+
+  Last node voltages tried were:
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   IN)   32.0000  (  OUT) 348.1E-15  (N14760) 348.1E-15 (N15115)   30.6850     
+
+(N15144)   31.8020 (N15182)    4.6577 (N15229)   32.0000 (N15292)   32.0000     
+
+(X_M1.3)    4.8873 (X_M1.5)   28.8530 (X_U1.1)    0.0000 (X_U1.4) 8.100E-15     
+
+(X_U1.7) 245.3E-06 (N149361) 271.8E-24                   (N149367)    0.0000    
+
+(X_U1.15)    0.0000                   (X_U1.22) 271.8E-24                       
+
+(X_U1.24)    5.0000                   (X_U1.28)    0.0000                       
+
+(X_U1.45) 778.2E-09                   (X_U1.46)-266.5E-24                       
+
+(X_U1.49)     .5790                   (X_U1.50)     .5790                       
+
+(X_U1.54)     .5790                   (X_U1.CL)    0.0000                       
+
+(X_U1.HI)    5.0000                   (X_U1.LO)     .0116                       
+
+(X_U1.OV)    0.0000                   (X_U1.QN)     .5790                       
+
+(X_U1.SS)-8.333E-18                   (X_U1.111)   32.0000                      
+
+(X_U1.ONT)    0.0000                  (X_U1.REF)   32.0000                      
+
+(X_U1.SSV)    3.8000                  (X_U1.V5V)    5.0000                      
+
+(X_U1.COMP)    0.0000                 (X_U1.ENON)    4.9950                     
+
+(X_U1.OFFT)    0.0000                 (X_U1.REF1)    0.0000                     
+
+(X_U1.VSDN)    5.0000                 (X_U1.X2.3)    5.0000                     
+
+(X_U1.X5.4)     .1000                 (X_U1.X8.3)    5.0000                     
+
+(X_U1.DRIVE)     .5790                (X_U1.ENINT)    1.6672                    
+
+(X_U1.INVCL)     .5790                (X_U1.X66.6)    5.0000                    
+
+(X_U1.X67.3)     .1000                (X_U1.X68.3)    5.0000                    
+
+(X_U1.X69.4)    0.0000                (X_U1.X69.5)    0.0000                    
+
+(X_U1.X71.4)    5.0000                (X_U1.XA1.4)    5.0000                    
+
+(X_U1.XA2.4)    0.0000                (X_U1.XCL.4)    5.0000                    
+
+(X_U1.XCL.5)    0.0000                (X_U1.XFB.4)    5.0000                    
+
+(X_U1.XFB.5)    0.0000                (X_M1.XESD.6)   30.6770                   
+
+(X_M1.XESD.7)   30.6850               (X_M1.XESD.8)   25.1250                   
+
+(X_M1.XESD.9)   28.8530               (X_U1.CAPOFF) 33.72E-06                   
+
+(X_U1.DRVNOT)     .5790               (X_U1.ONCOMP)     .0116                   
+
+(X_U1.QLATCH)     .5790               (X_U1.XOFF.4)    0.0000                   
+
+(X_U1.XOFF.5)    0.0000               (X_M1.XESD.10)   28.8800                  
+
+(X_U1.INVCOMP)     .5790              (X_U1.VCCUVLO)    1.6656                  
+
+(X_U1.X6.X1.4)    5.0000              (X_U1.X6.X2.4)    5.0000                  
+
+(X_U1.OFFRESET)     .5790             (X_U1.X22.X1.4)    5.0000                 
+
+(X_U1.X22.X2.4)    5.0000             (X_U1.IFAULTCLEAR)    0.0000          
+
+
+**** Interrupt ****
+
+          JOB ABORTED
+
+**** 11/12/16 01:00:08 ***** PSpice 16.6.0 (October 2012) ***** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\VUT\BS3\BNEZ\projekt\sim\bnez-pspicefiles\schematic1\bias.sim ] 
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =       66.63
+

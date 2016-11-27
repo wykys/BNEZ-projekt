@@ -1,0 +1,43 @@
+Source,C:/vut/BS3/BNEZ/projekt/design/xvykyd06_zdroj.sch
+Kicad Rev,Eeschema 4.0.4-stable
+Generated Date,24.11.2016 23:06:19
+
+Title,Zdroj s dvěma výstupníma napětíma
+Company,VUT FEKT
+Revision,1.0
+Date Issue,2016-11-03
+Comment,Jan Vykydal
+Comment,186240
+Comment,wykys
+
+Reference,Value,Library,Library Ref
+P1,PWR IN,conn,CONN_01X02
+P2,+9V,conn,CONN_01X02
+P3,+4V5,conn,CONN_01X02
+U1,LM317KCS,bnez_projekt,LM317DCY
+R1,510R,device,R
+R2,1k3,device,R
+C1,100n,device,C
+C3,1u,device,C
+U2,LM25085MYE,bnez_projekt,LM25085
+R4,R01,device,R
+R3,180k,device,R
+C7,470n,device,C
+R5,1k5,device,R
+C6,1n,device,C
+R6,6k2,device,R
+R7,1k,device,R
+C8,6n8,device,C
+C9,68u/20V,device,CP
+L1,47u,device,INDUCTOR_SMALL
+C5,1u,device,C
+D1,BYG10D-E3/TR,device,D
+D2,BYG10D-E3/TR,device,D
+C2,10u/20V,device,CP
+C4,22u/50V,device,CP
+D3,STPS20M100S,device,D_Schottky
+Q1,FDD5614P,bnez_projekt,FDD5614P
+M1,M3,bnez_projekt,M3
+M2,M3,bnez_projekt,M3
+M3,M3,bnez_projekt,M3
+M4,M3,bnez_projekt,M3

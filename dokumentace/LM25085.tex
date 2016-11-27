@@ -1,0 +1,201 @@
+\clearpage
+\section{Výpočty hodnot součástek pro LM25085 PFET kontrolér}
+
+\begin{table}[H]
+	\begin{center}
+
+		\begin{tabular}{c | c}
+			\begin{minipage}{0.3\textwidth}
+				\begin{eqnarray}
+					V_{IN} &=& (18\div 32)~V \nonumber\\
+					V_{\overline{IN}} &=& \dfrac{18 + 32}{2} = 25~V \nonumber\\\nonumber\\
+					V_{OUT} &=& 9~V \nonumber\\
+					I_{OUT} &=& I_{out_1} + I_{out_2} \nonumber\\
+					I_{OUT} &=& 2,4 + 0,5 \doteq 3~A \nonumber\\ \nonumber\\
+					F_{SW} &=& 300~kHz \nonumber\\
+					V_{RIPPLE} &=& 5~mV_{pp} \nonumber					
+				\end{eqnarray}
+			\end{minipage}
+
+	&		
+				
+			\begin{minipage}{0.7\textwidth}
+				\begin{figure}[H]
+					\begin{center}\resizebox{0.8\textwidth}{!}
+					{
+						\begin{circuitikz}
+							%\draw[help lines, thick] (0,0) grid (15,15);	
+							\draw (5,6) node[LM25085] (ic1) {\textbf{LM25085}};
+							
+							\draw (-2,9) to[eC=$C_{IN}$, *-*] (-2, 0);
+							\draw (0,9) to[C=$C_{BYP}$, *-*] (0, 0);
+
+							\draw (2,9) to[short] (2,12) to[short] (9,12) to[short] (9,7);							
+							\draw (2,9) to[R=$R_T$, *-] (2,7) to[short] (3,7);
+							
+							\draw (7,9) to[short] (7.25,9) to[C=$C_{VCC}$, -*] (7.25, 12);
+							
+							\draw (7.25,7) to[short, *-] (7.25,7.8) to[C=$C_{ADJ}$, -*] (9,7.8);
+							\draw (9,7) to[R=$R_{ADJ}$, *-] (7,7);
+							
+							\draw (9,7) to[R=$R_{SEN}$] (9,5);							
+							\draw (9,7) to[R=$R_{SEN}$] (9,5);							
+							\draw (9,4) node[pfet]{};
+							\draw (9,0) to[sD-, *-] (9,2) to[short] (9,3.5);
+
+														
+							%\draw (9,3) to[short, *-] (10,3) to[short] (10,4) to[L=$L_1$] (12,4);
+							\draw (9,3) -| (10,4) to[L=$L_1$] (12,4);
+							\draw (9,3) to[short,*-] ++(0,0); 
+							\draw (14,4) to[R=$R_{RFB2}$, *-*] (14,2) to[R=$R_{RFB1}$, -*] (14,0);
+							\draw (12,4) to[C=$C_{FF}$, *-*] (12,2);
+
+							
+							\draw (16,4) to[eC=$C_{OUT}$, *-*] (16, 0);
+							
+													
+							% ISEN
+							\draw (7,5) to[short, -*] (9,5) to[short, -*] (9,4.27) to[short] (9,4);				
+							% PGATE							
+							\draw (7,4) to[short] (8.2,4);
+							%FB
+							\draw (7,3) to[short] (7.25,3) to[short] (7.25,2) to[short] (14,2);
+							%GND
+							\draw (3,3) to[short] (2,3) to[short, -*] (2,0);
+							
+							% svorky							
+							\draw (-4,0) to[short, o-o] (18,0);
+							\draw (-4,9) to[short, o-] (3,9);
+							\draw (12,4) to[short, -o] (18,4);
+							
+							
+							% napětí a proudy
+							\draw (-4,9) to[open, v=$V_{IN}$] (-4,0);
+							\draw (18,0) to[open, v<=$V_{OUT}$] (18,4);
+							\draw (14,4) to[open, i=$I_{OUT}$] (18,4);
+							
+									
+
+							
+
+						\end{circuitikz}
+					}
+					\end{center}
+					\caption{Snižující spínaný měnič}
+				\end{figure}
+			\end{minipage}
+		\end{tabular}
+	\end{center}	
+\end{table}
+
+\indent\indent Výpočet střídy spínání:
+\begin{equation}
+D = \dfrac{V_{OUT}}{V_{IN}} = \dfrac{t_{ON}}{t_{ON} + t_{OFF}} = t_{ON} \cdot F_S =
+\left\lbrace
+\begin{array}{ccl}
+\dfrac{9}{18} & = & \underline{\underline{0,5}} \\\\
+\dfrac{9}{25} & = & \underline{\underline{0,36}} \\\\
+\dfrac{9}{32} & \doteq & \underline{\underline{0,28}}
+\end{array}
+\right.
+\nonumber
+\end{equation}
+
+Výpočet doby otevření PFETu:
+\begin{equation}
+t_{ON} = \dfrac{D}{F_{S}} = \dfrac{V_{OUT}}{V_{IN} \cdot F_S} 
+\left\lbrace
+\begin{array}{ccl}
+\dfrac{9}{18 \cdot 300 \cdot 10^{3}} & \doteq & \underline{\underline{1,667~\mu s}} \\\\
+\dfrac{9}{25 \cdot 300 \cdot 10^{3}} & = & \underline{\underline{1,2~\mu s}} \\\\
+\dfrac{9}{32 \cdot 300 \cdot 10^{3}} & = & \underline{\underline{937,5~ns}}
+\end{array}
+\right.
+\nonumber
+\end{equation}
+
+Výpočet děliče zpětné vazby: $R_{FB1}$ zvolím $1~k\Omega$
+\begin{equation}
+R_{FB2} = \left( \dfrac{V_{OUT}}{1,25} - 1 \right) \cdot R_{FB1} = \left( \dfrac{9}{1,25} -1 \right) \cdot 10^{3} = \underline{\underline{6,2~k\Omega}}
+\nonumber
+\end{equation}
+
+
+Výpočet výstupního napětí:
+\begin{equation}
+V_{OUT} = 1,25 \cdot \left( \dfrac{R_{FB1} + R_{FB2}}{R_{FB1}} \right) = 1,25 \cdot \left(1 + \dfrac{R_{FB2}}{R_{FB1}} \right) = 1,25 \cdot \left( 1+ \dfrac{6,2}{1} \right) = \underline{\underline{9~V}}
+\nonumber
+\end{equation}
+
+Výpočet kondenzátoru zpětné vazby:
+\begin{equation}
+C_{FF} = \dfrac{3 \cdot T_{on_{(max)}}}{\dfrac{R_{BF1} \cdot R_{BF2}}{R_{BF1} + R_{BF2}}} =
+ \dfrac{3 \cdot 1,667 \cdot 10^{-6}}{\dfrac{1 \cdot 10^{3} \cdot 6,2 \cdot 10^{3}}{1 \cdot 10^{3} + 6,2 \cdot 10^{3}}} = 5,8~nF \doteq \underline{\underline{6,8~nF}}
+\nonumber
+\end{equation}
+
+Velikost rezistoru $R_T$ nastavuje spínací frekvenci: $R_T$ je v $k\Omega$
+\begin{eqnarray}
+R_T &=& \dfrac{V_{OUT} \cdot (V_{IN} - 1,56)}{1,45 \cdot 10^{-7} \cdot V_{IN} \cdot F_S} - \dfrac{t_D \cdot (V_{IN} - 1,56)}{1,45 \cdot 10^{-7}} - 1,4 \nonumber\\
+R_T &=& \dfrac{9 \cdot (25 - 1,56)}{1,45 \cdot 10^{-7} \cdot 25 \cdot 300 \cdot 10^{3}} - \dfrac{t_D \cdot (25 - 1,56)}{1,45 \cdot 10^{-7}} - 1,4 = 193,016~k\Omega \doteq \underline{\underline{180~k\Omega}}
+\nonumber
+\end{eqnarray}
+
+
+Výpočet vyhlazovací cívky:
+\begin{equation}
+L_1 = \dfrac{t_{ON_{(min)}} \cdot \left(V_{IN_{(max)}} - V_{OUT} \right)}{0,2 \cdot I_{OUT}} = \dfrac{937,5 \cdot 10^{-9} \cdot (32 - 9)}{0,2 \cdot 3} \doteq \underline{\underline{36~\mu H}}
+\nonumber
+\end{equation}
+Vzhledem k toleranci nominální hodnoty vyráběných cívek zvolím cívku $\underline{\underline{47~\mu H}}$ abych měl rezervu, pokud bude hodnota cívka v dolní části tolerančního pásma.
+\\\\\indent
+Výpočet vyhlazovacího kondenzátoru:
+\begin{equation}
+C_{OUT} = \dfrac{0,2 \cdot I_{OUT}}{8 \cdot F_S \cdot V_{RIPPLE}} = \dfrac{0,2 \cdot 3}{8 \cdot 300 \cdot 10^{3} \cdot 5 \cdot 10^{-3}} = 50~\mu F \doteq \underline{\underline{68~\mu F}}
+\nonumber
+\end{equation}
+
+Vzhledem k tomu, že tento kondenzátor je na výstupu spínaného měniče kde se výstupní napětí pohybuje okolo $9~V$, tak tento kondenzátor by měl být dimenzován minimálně na $16~V$ pro jistotu na $20~V$.
+\\\\\indent
+Výpočet vstupního kondenzátoru:
+\begin{equation}
+C_{IN} + C_{BYP} = \dfrac{I_{OUT} \cdot t_{ON_{(max)}}}{\Delta V} = \dfrac{3 \cdot 1,667 \cdot 10^{-6}}{0,5} \doteq \underline{\underline{10~\mu F}}
+\nonumber
+\end{equation}
+
+$C_{BYP}$ zvolím podle doporučení datasheetu jako $1~\mu F$ a $C_{IN}$ zvolím jako $10~\mu F$ na $50~V$, protože vstupní napětí může být až $32~V$.
+\\\\\indent
+Výpočet zvlnění proudu:
+\begin{equation}
+\Delta I = \dfrac{t_{ON_{(min)}} \cdot \left(V_{IN_{(max)}} - V_{OUT} \right)}{L_1} = \dfrac{937,5 \cdot 10^{-9} \cdot (32 - 9)}{47 \cdot 10^{-6}} \doteq \underline{\underline{459~mA}}
+\nonumber
+\end{equation}
+
+Velikost minimální hodnoty proudové limitace:
+\begin{equation}
+I_{CL_{(min)}} = I_{OUT} + \dfrac{\Delta I}{2} = 3 + \dfrac{0,459}{2} \doteq \underline{\underline{3,25~A}}
+\nonumber
+\end{equation}
+
+Výpočet minimálního proudového limitu se započítanou chybou offsetu komparátoru:
+\begin{equation}
+I_{CL_{(min)_{offset}}} = I_{CL_{(min)}} + \dfrac{9 \cdot 10^{-3}}{R_{SEN}} = 3,25 + \dfrac{9 \cdot 10^{-3}}{10 \cdot 10^{-3}} = \underline{\underline{4,15~A}}
+\nonumber
+\end{equation}
+
+Výpočet rezistoru $R_{ADJ}$:
+\begin{equation}
+R_{ADJ} = \dfrac{I_{CL_{(min)_{offset}}} \cdot R_{SEN}}{I_{ADJ_{(min)}}} = \dfrac{4,15 \cdot 10 \cdot 10^{-3}}{32 \cdot 10^{-6}} = 1297~\Omega \doteq \underline{\underline{1,5~k\Omega}}
+\nonumber
+\end{equation}
+
+$C_{ADJ} = 1~nF$ hodnota podle doporučení v datasheetu, filtruje šum s ADJ pinu, zabraňuje nechtěnému sepnutí komparátoru.
+\\\\
+\indent Velikost rezistoru $R_{SEN}$ výrobce doporučuje $10~m\Omega$, výkonová ztráta na rezistoru je:
+\begin{equation}
+P_{R_{SEN}} = I_{CL_{(min)}}^2 \cdot R_{SEN} = 3,25^2 \cdot 10 \cdot 10^{-3} \doteq \underline{\underline{106~mW}}
+\nonumber
+\end{equation}
+Podle toho je důležité zvolit pouzdro, které snese takovéto zatížení. Vypočítané zatížení by snesl rezistor v pouzdru 0805, který vydrží $125~mW$ či pouzdro 1206 které vydrží do $250~mW$, pro jistotu, ale volím pouzdro 1210, které vydrží výkon až $500~mW$ tím zajistím že součástka nebude na pokraji svých možností a bude mít dostatečnou životnost.
+\\\\
+Hodnota kondenzátoru $C_{VCC}$ je dle doporučení datasheetu $470~nF$.
